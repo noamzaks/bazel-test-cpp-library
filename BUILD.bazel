@@ -1,0 +1,17 @@
+# cc_library(
+#     name = "foo",
+#     srcs = ["libfoo.so"],
+#     hdrs = ["foo.h"],
+# )
+
+cc_import(
+    name = "foo",
+    hdrs = ["foo.h"],
+    shared_library = "libfoo.so",
+)
+
+cc_binary(
+    name = "main",
+    srcs = ["main.c"],
+    deps = [":foo"],
+)
